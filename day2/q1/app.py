@@ -6,10 +6,8 @@ def read_file():
             total = 0
 
             for line in lines:
-                # Convert strings to integers
                 line = [int(num) for num in line]
 
-                # Check if the line is sorted in increasing or decreasing order
                 if line == sorted(line) or line == sorted(line, reverse=True):
                     valid = True
                     for i in range(len(line) - 1):
