@@ -4,20 +4,17 @@ pattern = r"\bmul\(\d+,\d+\)\b"
 
 
 def read_file():
-    numbers = []
-    multiplication = []
+    total = 0
     try:
         with open("day3/q1/input.txt") as f:
             for line in f:
                 matches = re.findall(r"mul\((\d+),(\d+)\)", line)
 
                 for match in matches:
-                    numbers.append((int(match[0]), int(match[1])))
+                    num1, num2 = int(match[0]), int(match[1])
+                    total += num1 * num2
 
-        for num1, num2 in numbers:
-            result = num1 * num2
-            multiplication.append(result)
-        print(sum(multiplication))
+        print(total)
 
     except FileNotFoundError:
         print("File not found")
